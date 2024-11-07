@@ -1,13 +1,29 @@
 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <%= f.input :email,
-              required: false,
-              autofocus: true,
-              input_html: { autocomplete: "email" } %>
-  <%= f.input :password,
-              required: false,
-              input_html: { autocomplete: "current-password" } %>
-  <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
-  <%= f.button :submit, "Log in" %>
-<% end %>
+  <div class="flex justify-center min-h-screen items-center bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500">
+    <div class="login p-6 bg-white shadow-md rounded-lg w-[500px]">
+      <div class="text-center mb-4 font-semibold">Login</div>
 
-<%= render "devise/shared/links" %>
+      <div class="mb-4">
+        <%= f.input :email,
+                    label: false,
+                    input_html: { placeholder: "Email Address", class: "w-full border-gray-300 rounded-md" } %>
+      </div>
+
+      <div class="mb-4">
+        <%= f.input :password,
+                    label: false,
+                    input_html: { placeholder: "Password", class: "w-full border-gray-300 rounded-md" } %>
+      </div>
+
+      <div class="mb-4 flex">
+        <%= f.input :remember_me, as: :boolean, label: false if devise_mapping.rememberable? %>
+        <div class="ml-2">Remember me</div>
+      </div>
+
+      <div class="flex justify-center mt-4">
+        <%= f.button :submit, "Log in", class: "btn btn-primary px-6 py-2 bg-sky-300 text-white rounded-md hover:bg-blue-500 cursor-pointer" %>
+      </div>
+      <%= render "devise/shared/links" %>
+    </div>
+  </div>
+<% end %>
