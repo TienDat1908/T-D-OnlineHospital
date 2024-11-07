@@ -1,29 +1,47 @@
 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="flex justify-center min-h-screen items-center bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500">
-    <div class="login p-6 bg-white shadow-md rounded-lg w-[500px]">
-      <div class="text-center mb-4 font-semibold">Login</div>
-
-      <div class="mb-4">
-        <%= f.input :email,
-                    label: false,
-                    input_html: { placeholder: "Email Address", class: "w-full border-gray-300 rounded-md" } %>
+    <div class="login bg-white shadow-md rounded-[10px] w-[500px]" style="padding-top: 65px; padding-right: 55px; padding-bottom: 54px; padding-left: 55px">
+      <div class="text-center font-semibold tertiary-font text-[39px]" style="margin-bottom: 49px">Login</div>
+      <div class="form-group floating-label-control" style="margin-bottom: 23px">
+        <%= f.text_field  :email,
+                          placeholder: "Email Address",
+                          class: 'form-control w-full',
+                          required: true
+        %>
+        <span class="floating-label">Email Address</span>
       </div>
-
-      <div class="mb-4">
-        <%= f.input :password,
-                    label: false,
-                    input_html: { placeholder: "Password", class: "w-full border-gray-300 rounded-md" } %>
+      <div class="form-group floating-label-control mb-4">
+        <%= f.text_field  :password,
+                          placeholder: "Password",
+                          class: 'form-control w-full',
+                          required: true
+        %>
+        <span class="floating-label">Password</span>
       </div>
-
-      <div class="mb-4 flex">
-        <%= f.input :remember_me, as: :boolean, label: false if devise_mapping.rememberable? %>
-        <div class="ml-2">Remember me</div>
+      <div class="text-[#909090] hover:bg-gradient-to-r hover:from-blue-400 hover:via-purple-500 hover:to-pink-500 hover:bg-clip-text hover:text-transparent transition duration-300 ease-in-out text-right" style="margin-top: 8px; margin-bottom: 31px">
+        <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+          <%= link_to "Forgot password?", new_password_path(resource_name) %><br />
+        <% end %>
       </div>
-
-      <div class="flex justify-center mt-4">
-        <%= f.button :submit, "Log in", class: "btn btn-primary px-6 py-2 bg-sky-300 text-white rounded-md hover:bg-blue-500 cursor-pointer" %>
+      <div class="flex justify-center mb-4">
+        <%= f.button :submit, "LOGIN", class: "w-full h-[50px] text-white rounded-md cursor-pointer bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 opacity-50 hover:opacity-100 transition duration-300 ease-in-out text-base tertiary-font font-medium rounded-full" %>
       </div>
-      <%= render "devise/shared/links" %>
+      <div class="flex space-x-4">
+        <a href="https://facebook.com" class="text-blue-600">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://twitter.com" class="text-blue-400">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="https://google.com" class="text-red-500">
+          <i class="fab fa-google"></i>
+        </a>
+      </div>
+      <div>
+        <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+          <%= link_to "Sign up", new_registration_path(resource_name) %><br />
+        <% end %>
+      </div>
     </div>
   </div>
 <% end %>

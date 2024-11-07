@@ -11,3 +11,49 @@ body {
 .secondary-font {
   font-family: $secondary-font;
 }
+
+.tertiary-font {
+  font-family: $tertiary-font;
+}
+
+.floating-label-control {
+  position: relative;
+  .form-control {
+    height: 72px;
+    border-radius: 8px;
+  }
+
+  input, select {
+    color: #2D2D2D;
+  }
+
+  input:focus ~ .floating-label,
+  input:not(:placeholder-shown):not([type='hidden']) ~ .floating-label,
+  textarea:not(:placeholder-shown):not([type='hidden']) ~ .floating-label,
+  input:not(:placeholder-shown):not([type='hidden']):-webkit-autofill ~ .floating-label,
+  select ~ .floating-label {
+    top: 16px;
+    left: 0.75rem;
+    font-size: 12px;
+    opacity: 1;
+  }
+
+  input::placeholder {
+    opacity: 0;
+  }
+
+  .floating-label {
+    color: #909090;
+    left: 0.75rem;
+    font-size: 16px;
+    position: absolute;
+    pointer-events: none;
+    top: 50%;
+    margin-top: -12px;
+    transition: 0.2s ease all;
+  }
+
+  .font-size {
+    font-size: 10%;
+  }
+}
