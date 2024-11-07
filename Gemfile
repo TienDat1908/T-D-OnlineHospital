@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem "rails", "~> 7.2.1"
+gem "rails", "~> 7.2.2"
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 # Use postgresql as the database for Active Record
@@ -50,6 +50,7 @@ end
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
+  gem 'annotate'
 end
 
 group :test do
@@ -57,3 +58,7 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+gem 'devise'
+gem 'pry'
+gem 'simple_form'
