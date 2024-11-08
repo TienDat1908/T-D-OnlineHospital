@@ -1,25 +1,44 @@
-<h2>Sign up</h2>
-
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "email" }%>
-    <%= f.input :password,
-                required: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: true,
-                input_html: { autocomplete: "new-password" } %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
+  <div class="flex justify-center min-h-screen items-center bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500">
+    <div class="login bg-white shadow-md rounded-[10px] w-[500px] pt-[65px] pb-[54px] pr-[55px] pl-[55px]">
+      <div class="text-center font-semibold tertiary-font text-[39px] mb-[49px]">Create an account</div>
+      <div class="form-group floating-label-control mb-[23px]">
+        <%= f.text_field  :email,
+                          placeholder: "Email Address",
+                          class: 'form-control w-full',
+                          required: true
+        %>
+        <span class="floating-label">Email Address</span>
+      </div>
+      <div class="form-group floating-label-control mb-[35px]">
+        <%= f.text_field  :password,
+                          placeholder: "Password",
+                          class: 'form-control w-full',
+                          required: true
+        %>
+        <span class="floating-label">Password</span>
+      </div>
+      <div class="flex justify-center">
+        <%= f.button :submit, "SIGN UP", class: "w-full h-[50px] text-white cursor-pointer bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 opacity-50 hover:opacity-100 transition duration-300 ease-in-out text-base tertiary-font font-medium rounded-full" %>
+      </div>
+      <div class="pt-[54px] pb-[20px] text-center bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">Or Sign Up Using</div>
+      <div class="flex gap-6 justify-center">
+        <div class="text-blue-600">
+          <i class="text-3xl fab fa-facebook-f"></i>
+        </div>
+        <div class="text-blue-400">
+          <i class="text-3xl fab fa-twitter"></i>
+        </div>
+        <div class="text-red-500">
+          <i class="text-3xl fab fa-google"></i>
+        </div>
+      </div>
+      <div class="pt-[155px] flex justify-center text-[14px] tertiary-font">
+        <%- if controller_name != 'sessions' %>
+          <%= link_to "LOGIN", new_session_path(resource_name) %><br />
+        <% end %>
+      </div>
+    </div>
   </div>
 <% end %>
-
-<%= render "devise/shared/links" %>
