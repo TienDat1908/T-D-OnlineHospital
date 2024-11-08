@@ -1,8 +1,8 @@
 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="flex justify-center min-h-screen items-center bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500">
-    <div class="login bg-white shadow-md rounded-[10px] w-[500px]" style="padding-top: 65px; padding-right: 55px; padding-bottom: 54px; padding-left: 55px">
-      <div class="text-center font-semibold tertiary-font text-[39px]" style="margin-bottom: 49px">Login</div>
-      <div class="form-group floating-label-control" style="margin-bottom: 23px">
+    <div class="login bg-white shadow-md rounded-[10px] w-[500px] pt-[65px] pb-[54px] pr-[55px] pl-[55px]">
+      <div class="text-center font-semibold tertiary-font text-[39px] mb-[49px]">Login</div>
+      <div class="form-group floating-label-control mb-[23px]">
         <%= f.text_field  :email,
                           placeholder: "Email Address",
                           class: 'form-control w-full',
@@ -18,28 +18,29 @@
         %>
         <span class="floating-label">Password</span>
       </div>
-      <div class="text-[#909090] hover:bg-gradient-to-r hover:from-blue-400 hover:via-purple-500 hover:to-pink-500 hover:bg-clip-text hover:text-transparent transition duration-300 ease-in-out text-right" style="margin-top: 8px; margin-bottom: 31px">
+      <div class="text-[#909090] hover:bg-gradient-to-r hover:from-blue-400 hover:via-purple-500 hover:to-pink-500 hover:bg-clip-text hover:text-transparent transition duration-300 ease-in-out text-right pt-[8px] pb-[31px]">
         <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
           <%= link_to "Forgot password?", new_password_path(resource_name) %><br />
         <% end %>
       </div>
-      <div class="flex justify-center mb-4">
-        <%= f.button :submit, "LOGIN", class: "w-full h-[50px] text-white rounded-md cursor-pointer bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 opacity-50 hover:opacity-100 transition duration-300 ease-in-out text-base tertiary-font font-medium rounded-full" %>
+      <div class="flex justify-center">
+        <%= f.button :submit, "LOGIN", class: "w-full h-[50px] text-white cursor-pointer bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 opacity-50 hover:opacity-100 transition duration-300 ease-in-out text-base tertiary-font font-medium rounded-full" %>
       </div>
-      <div class="flex space-x-4">
-        <a href="https://facebook.com" class="text-blue-600">
-          <i class="fab fa-facebook-f"></i>
-        </a>
-        <a href="https://twitter.com" class="text-blue-400">
-          <i class="fab fa-twitter"></i>
-        </a>
-        <a href="https://google.com" class="text-red-500">
-          <i class="fab fa-google"></i>
-        </a>
+      <div class="pt-[54px] pb-[20px] text-center bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">Or Sign Up Using</div>
+      <div class="flex gap-6 justify-center">
+        <div class="text-blue-600">
+          <i class="text-3xl fab fa-facebook-f"></i>
+        </div>
+        <div class="text-blue-400">
+          <i class="text-3xl fab fa-twitter"></i>
+        </div>
+        <div class="text-red-500">
+          <i class="text-3xl fab fa-google"></i>
+        </div>
       </div>
-      <div>
+      <div class="pt-[155px] flex justify-center text-[14px] tertiary-font">
         <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-          <%= link_to "Sign up", new_registration_path(resource_name) %><br />
+          <%= link_to "SIGN UP", new_registration_path(resource_name) %><br />
         <% end %>
       </div>
     </div>
