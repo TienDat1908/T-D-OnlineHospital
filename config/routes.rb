@@ -14,11 +14,7 @@ Rails.application.routes.draw do
 
   # Devise cho AdminUser
   devise_for :admin_users, controllers: {
-    sessions: 'admin_users/sessions',
-    registrations: 'admin_users/registrations',
-    passwords: 'admin_users/passwords',
-    confirmations: 'admin_users/confirmations',
-    unlocks: 'admin_users/unlocks'
+    sessions: 'admin_users/sessions'
   }
 
   get 'dashboard', to: 'dashboard#index', as: :dashboard
