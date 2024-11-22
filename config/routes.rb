@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 Rails.application.routes.draw do
   root to: 'home#index'
 
@@ -17,5 +15,12 @@ Rails.application.routes.draw do
     sessions: 'admin_users/sessions'
   }
 
+  # Dashboard cho User
   get 'dashboard', to: 'dashboard#index', as: :dashboard
+
+  # Namespace cho admin_users
+  namespace :admin_users do
+    get 'dashboard', to: 'dashboard#index', as: :dashboard_admin
+    resources :users, only: %i[index]
+  end
 end

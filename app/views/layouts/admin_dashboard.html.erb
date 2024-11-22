@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%= render partial: 'layouts/header' %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body class="font-sans text-gray-900">
+    <div class="flex h-screen">
+      <div class="w-64 bg-gray-800 text-white p-4 flex flex-col h-full">
+        <div class="text-center mb-6 text-[32px] font-bold tertiary-font">Admin User</div>
+
+        <ul class="space-y-4 flex-grow">
+          <li class="block text-white hover:bg-gray-700 px-3 py-2 rounded">
+            <%= link_to admin_users_dashboard_admin_path do %>
+              <i class="fas fa-tachometer-alt mr-3"></i>
+              <span>Dashboard</span>
+            <% end %>
+          </li>
+          <li class="block text-white hover:bg-gray-700 px-3 py-2 rounded">
+            <%= link_to admin_users_users_path do %>
+              <i class="fas fa-user mr-3"></i>
+              <span>User</span>
+            <% end %>
+          </li>
+          <li class="block text-white hover:bg-gray-700 px-3 py-2 rounded">
+            <i class="fas fa-cogs mr-3"></i>
+            <span>Settings</span>
+          </li>
+        </ul>
+
+        <div class="mt-auto">
+          <%= button_to 'Sign Out', destroy_user_session_path, class: "block text-white hover:bg-gray-700 px-3 py-2 rounded", method: :delete %>
+        </div>
+      </div>
+
+      <div class="flex-1 bg-gray-100 p-6 overflow-auto">
+        <%= yield %>
+      </div>
+    </div>
+  </body>
+</html>
