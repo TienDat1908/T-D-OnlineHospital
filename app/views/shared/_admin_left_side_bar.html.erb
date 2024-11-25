@@ -1,0 +1,28 @@
+<div class="w-64 bg-gray-800 text-white flex flex-col h-full" style="padding: 20px">
+  <div class="text-center text-[32px] font-bold tertiary-font" style="margin-bottom: 14px">Admin User</div>
+
+  <ul class="space-y-4 flex-grow">
+    <%= link_to admin_users_dashboard_index_path do %>
+      <li class="block text-white hover:bg-gray-700 rounded" style="padding: 12px">
+        <i class="fas fa-tachometer-alt mr-3"></i>
+        <span>Dashboard</span>
+      </li>
+    <% end %>
+    <%= link_to admin_users_users_path do %>
+      <li class="block text-white hover:bg-gray-700 rounded" style="padding: 12px">
+        <i class="fas fa-user mr-3"></i>
+        <span>User</span>
+      </li>
+    <% end %>
+    <%= link_to admin_users_post_articles_path do %>
+      <li class="block text-white hover:bg-gray-700 rounded" style="padding: 12px">
+        <i class="fas fa-file-alt mr-3"></i>
+        <span>Post Article</span>
+      </li>
+    <% end %>
+  </ul>
+
+  <div class="mt-auto">
+    <%= button_to 'Sign Out', destroy_user_session_path, class: "text-white", method: :delete %>
+  </div>
+</div>

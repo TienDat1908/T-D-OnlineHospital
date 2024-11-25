@@ -1,0 +1,16 @@
+<table class="table table-striped w-full bg-white shadow-lg rounded-xl">
+  <thead class="text-left" style="border-bottom: 2px solid rgb(156 163 175)">
+    <tr>
+      <th>No.</th>
+      <th>Title</th>
+      <th>Content</th>
+      <th>Updated At</th>
+      <th>Created At</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @post_articles.each do |post_article| %>
+      <%= render post_article %>
+    <% end %>
+  </tbody>
+</table>

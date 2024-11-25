@@ -20,8 +20,9 @@ Rails.application.routes.draw do
 
   # Namespace cho admin_users
   namespace :admin_users do
-    get 'dashboard', to: 'dashboard#index', as: :dashboard_admin
-    resources :users, only: %i[index]
+    resources :dashboard
+    resources :users
+    resources :post_articles
   end
 
   resources :post_articles
