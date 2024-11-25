@@ -11,22 +11,18 @@
         <div class="text-center mb-6 text-[32px] font-bold tertiary-font">Admin User</div>
 
         <ul class="space-y-4 flex-grow">
-          <li class="block text-white hover:bg-gray-700 px-3 py-2 rounded">
-            <%= link_to admin_users_dashboard_admin_path do %>
+          <%= link_to admin_users_dashboard_admin_path do %>
+            <li class="block text-white hover:bg-gray-700 px-3 py-2 rounded">
               <i class="fas fa-tachometer-alt mr-3"></i>
               <span>Dashboard</span>
-            <% end %>
-          </li>
-          <li class="block text-white hover:bg-gray-700 px-3 py-2 rounded">
-            <%= link_to admin_users_users_path do %>
+            </li>
+          <% end %>
+          <%= link_to admin_users_users_path do %>
+            <li class="block text-white hover:bg-gray-700 px-3 py-2 rounded">
               <i class="fas fa-user mr-3"></i>
               <span>User</span>
-            <% end %>
-          </li>
-          <li class="block text-white hover:bg-gray-700 px-3 py-2 rounded">
-            <i class="fas fa-cogs mr-3"></i>
-            <span>Settings</span>
-          </li>
+            </li>
+          <% end %>
         </ul>
 
         <div class="mt-auto">

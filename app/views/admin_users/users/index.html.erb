@@ -1,18 +1,16 @@
-<table class="table table-striped">
-  <thead>
+<table class="table table-striped w-full bg-white shadow-lg rounded-xl">
+  <thead class="text-left" style="border-bottom: 2px solid rgb(156 163 175)">
     <tr>
       <th>No.</th>
       <th>Email</th>
+      <th>Current Sign-in At</th>
+      <th>Last Sign-in At</th>
       <th>Created At</th>
     </tr>
   </thead>
   <tbody>
     <% @users.each do |user| %>
-      <tr>
-        <td><%= user.id %></td>
-        <td><%= user.email %></td>
-        <td><%= user.created_at.strftime('%B %d, %Y') %></td>
-      </tr>
+      <%= render user %>
     <% end %>
   </tbody>
 </table>

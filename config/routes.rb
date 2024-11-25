@@ -23,4 +23,6 @@ Rails.application.routes.draw do
     get 'dashboard', to: 'dashboard#index', as: :dashboard_admin
     resources :users, only: %i[index]
   end
+
+  resources :post_articles
 end

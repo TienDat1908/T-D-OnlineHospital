@@ -1,2 +1,6 @@
 <%= button_to 'Sign Out', destroy_user_session_path, method: :delete %>
- 
+<%= link_to 'Create New Post', new_post_article_path, class: 'btn btn-primary mb-3' %>
+<% @post_articles.each do |post_article| %>
+  <%= post_article.title %>
+  <%= post_article.content %>
+<% end %>
