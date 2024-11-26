@@ -5,7 +5,8 @@ module AdminUsers
     layout 'admin_dashboard'
 
     def index
-      @users = User.order(created_at: :desc).page(params[:page]).per(11)
+      @q = User.ransack(params[:q])
+      @users = @q.result.order(created_at: :desc).page(params[:page]).per(12)
     end
   end
 end

@@ -3,5 +3,6 @@
   <td><%= user.email %></td>
   <td><%= user.current_sign_in_at&.strftime('%B %d, %Y') %></td>
   <td><%= user.last_sign_in_at&.strftime('%B %d, %Y') %></td>
+  <td><%= user.updated_at&.strftime('%B %d, %Y') %></td>
   <td><%= user.created_at.strftime('%B %d, %Y') %></td>
 </tr>

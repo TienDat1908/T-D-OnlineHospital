@@ -28,4 +28,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :trackable
 
   has_many :post_articles
+
+  def self.ransackable_attributes(_auth_object = nil)
+    %w[id email current_sign_in_at last_sign_in_at updated_at created_at]
+  end
 end
