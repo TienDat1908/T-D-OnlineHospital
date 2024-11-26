@@ -61,3 +61,12 @@ body {
     font-size: 10%;
   }
 }
+
+.hidden-scroll {
+  overflow: auto;
+  scrollbar-width: none;
+}
+
+.hidden-scroll::-webkit-scrollbar {
+  display: none;
+}

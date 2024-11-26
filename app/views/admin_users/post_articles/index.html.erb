@@ -1,3 +1,11 @@
+<div class="flex justify-between">
+  <div class="text-[36px] font-bold tertiary-font">
+    Post Article
+  </div>
+  <div>
+    <input name="search" type="text" class="search rounded-[10px] bg-white shadow-lg border-0" placeholder="Search Post Article" autocomplete="off">
+  </div>
+</div>
 <table class="table table-striped w-full bg-white shadow-lg rounded-xl">
   <thead class="text-left" style="border-bottom: 2px solid rgb(156 163 175)">
     <tr>
@@ -14,3 +22,6 @@
     <% end %>
   </tbody>
 </table>
+<div class="mt-6 flex justify-center">
+  <%= paginate @post_articles %>
+</div>
