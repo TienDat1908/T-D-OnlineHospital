@@ -1,28 +1,28 @@
-<div class="w-64 bg-gray-800 text-white flex flex-col h-full" style="padding: 20px">
-  <div class="text-center text-[32px] font-bold tertiary-font" style="margin-bottom: 14px">Admin User</div>
+<div class="w-64 bg-gray-800 text-white flex flex-col h-full">
+  <div class="text-center text-[37px] font-[900] tertiary-font bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">Admin T&D</div>
 
-  <ul class="space-y-4 flex-grow">
+  <ul class="space-y-4 flex-grow p-4">
     <%= link_to admin_users_dashboard_index_path do %>
-      <li class="block text-white hover:bg-gray-700 rounded" style="padding: 12px">
+      <li class="block text-white rounded p-3 <%= 'bg-gray-700' if current_page?(admin_users_dashboard_index_path) %> hover:bg-gray-700">
         <i class="fas fa-tachometer-alt mr-3"></i>
         <span>Dashboard</span>
       </li>
     <% end %>
     <%= link_to admin_users_users_path do %>
-      <li class="block text-white hover:bg-gray-700 rounded" style="padding: 12px">
+      <li class="block text-white rounded p-3 <%= 'bg-gray-700' if current_page?(admin_users_users_path) %> hover:bg-gray-700">
         <i class="fas fa-user mr-3"></i>
         <span>User</span>
       </li>
     <% end %>
     <%= link_to admin_users_post_articles_path do %>
-      <li class="block text-white hover:bg-gray-700 rounded" style="padding: 12px">
+      <li class="block text-white rounded p-3 <%= 'bg-gray-700' if current_page?(admin_users_post_articles_path) %> hover:bg-gray-700">
         <i class="fas fa-file-alt mr-3"></i>
         <span>Post Article</span>
       </li>
     <% end %>
   </ul>
 
-  <div class="mt-auto">
+  <div class="mt-auto text-center text-[30px] font-[900] bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 p-3">
     <%= button_to 'Sign Out', destroy_user_session_path, class: "text-white", method: :delete %>
   </div>
 </div>
