@@ -25,5 +25,11 @@ Rails.application.routes.draw do
     resources :post_articles
   end
 
-  resources :post_articles
+  namespace :api do
+    namespace :v1 do
+      post '/auth/login', to: 'auth#login'
+
+      resources :post_articles, only: %i[index show create update destroy]
+    end
+  end
 end
