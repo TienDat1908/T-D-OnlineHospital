@@ -29,6 +29,8 @@ class User < ApplicationRecord
 
   has_many :post_articles
 
+  validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
+
   def self.ransackable_attributes(_auth_object = nil)
     %w[id email current_sign_in_at last_sign_in_at updated_at created_at]
   end
