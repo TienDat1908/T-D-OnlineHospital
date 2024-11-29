@@ -1,9 +1,11 @@
-class Api::V1::AuthController < ApplicationController
+class Api::V1::AuthController < ApplicationApiController
+  skip_before_action :authorize_request, only: %i[login signup]
+
   def login
     user = User.find_by(email: params[:email])
 
     if user&.valid_password?(params[:password])
-      user.update(current_sign_in_at: Time.current, last_sign_in_at: user.current_sign_in_at)
+      user.update_columns(current_sign_in_at: Time.current, last_sign_in_at: user.current_sign_in_at, status: true)
 
       token = encode_token(user)
       render json: { token: token, user_id: user.id }, status: :ok
@@ -20,6 +22,17 @@ class Api::V1::AuthController < ApplicationController
       render json: { token: token, user_id: user.id }, status: :created
     else
       render json: { errors: user.errors.full_messages }, status: :unprocessable_entity
+    end
+  end
+
+  def logout
+    user = User.find_by(id: @current_user.id)
+
+    if user
+      user.update(status: false)
+      render json: { message: 'Successfully logged out' }, status: :ok
+    else
+      render json: { error: 'User not found' }, status: :not_found
     end
   end
 

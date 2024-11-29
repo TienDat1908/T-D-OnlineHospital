@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     resources :dashboard
     resources :users
     resources :post_articles
+    resources :profile_admin_users
   end
 
   namespace :api do
@@ -22,6 +23,7 @@ Rails.application.routes.draw do
         collection do
           post :login
           post :signup
+          post :logout
         end
       end
 
