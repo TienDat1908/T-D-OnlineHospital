@@ -18,8 +18,9 @@ class Api::V1::AuthController < ApplicationApiController
     user = User.new(user_params)
 
     if user.save
+      user.update_columns(status: true)
       token = encode_token(user)
-      render json: { token: token, user_id: user.id }, status: :created
+      render json: { token: token, user: user }, status: :created
     else
       render json: { errors: user.errors.full_messages }, status: :unprocessable_entity
     end
@@ -39,7 +40,13 @@ class Api::V1::AuthController < ApplicationApiController
   private
 
   def user_params
-    params.require(:user).permit(:email, :password)
+    params.require(:user).permit(
+      :email,
+      :password,
+      :phone_number,
+      :first_name,
+      :last_name
+    )
   end
 
   def encode_token(user)
