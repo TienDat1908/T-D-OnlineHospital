@@ -12,7 +12,11 @@ Rails.application.routes.draw do
   # Namespace cho admin_users
   namespace :admin_users do
     resources :dashboard
-    resources :users
+    resources :users, only: %i[index destroy] do
+      member do
+        get :profile_user
+      end
+    end
     resources :post_articles
     resources :profile_admin_users
   end
@@ -24,6 +28,7 @@ Rails.application.routes.draw do
           post :login
           post :signup
           post :logout
+          patch :update_profile
         end
       end
 

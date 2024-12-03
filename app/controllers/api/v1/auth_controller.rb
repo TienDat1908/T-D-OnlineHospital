@@ -37,15 +37,31 @@ class Api::V1::AuthController < ApplicationApiController
     end
   end
 
+  def update_profile
+    if @current_user.update(profile_params)
+      render json: { user: @current_user, message: 'Profile updated successfully' }, status: :ok
+    else
+      render json: { errors: @current_user.errors.full_messages }, status: :unprocessable_entity
+    end
+  end
+
   private
 
   def user_params
     params.require(:user).permit(
       :email,
       :password,
+      :password_confirmation
+    )
+  end
+
+  def profile_params
+    params.require(:user).permit(
       :phone_number,
       :first_name,
-      :last_name
+      :last_name,
+      :location,
+      :avatar
     )
   end
 

@@ -3,7 +3,6 @@
     User
   </div>
   <%= search_form_for @q, url: admin_users_users_path, method: :get do |f| %>
-    <%= f.search_field :id_eq, class: "search rounded-[10px] bg-white shadow-lg border-0", placeholder: "Search by ID" %>
     <%= f.search_field :email_cont, class: "search rounded-[10px] bg-white shadow-lg border-0", placeholder: "Search by Email" %>
     <%= f.submit "Search", class: "text-white cursor-pointer bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 p-2 rounded-[10px] shadow-lg"%>
   <% end %>
@@ -12,9 +11,10 @@
   <thead class="text-left" style="border-bottom: 2px solid rgb(156 163 175)">
     <tr>
       <th><%= sort_link(@q, :id, "No.") %></th>
+      <th><%= sort_link(@q, :first_name, "First Name") %></th>
+      <th><%= sort_link(@q, :last_name, "Last Name") %></th>
       <th><%= sort_link(@q, :email, "Email") %></th>
-      <th><%= sort_link(@q, :current_sign_in_at, "Current Sign-in At") %></th>
-      <th><%= sort_link(@q, :last_sign_in_at, "Last Sign-in At") %></th>
+      <th><%= sort_link(@q, :phone_number, "Phone Number") %></th>
     </tr>
   </thead>
   <tbody>

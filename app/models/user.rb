@@ -11,6 +11,7 @@
 #  last_name              :string
 #  last_sign_in_at        :datetime
 #  last_sign_in_ip        :inet
+#  location               :string
 #  phone_number           :string
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
@@ -31,11 +32,13 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :trackable
 
+  has_one_attached :avatar
+
   has_many :post_articles
 
   validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
 
   def self.ransackable_attributes(_auth_object = nil)
-    %w[id email current_sign_in_at last_sign_in_at updated_at created_at]
+    %w[id email phone_number first_name last_name]
   end
 end

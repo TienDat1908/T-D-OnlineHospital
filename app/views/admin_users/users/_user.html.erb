@@ -1,6 +1,18 @@
-<tr>
+<tr data-controller="clickable-row"
+    data-url="<%= profile_user_admin_users_user_path(user) %>"
+    data-action="click->clickable-row#handleClick"
+    class="cursor-pointer"
+>
   <td><%= user.id %></td>
+  <td><%= user.first_name %></td>
+  <td><%= user.last_name %></td>
   <td><%= user.email %></td>
-  <td><%= user.current_sign_in_at&.strftime('%B %d, %Y (%I:%M %p)') %></td>
-  <td><%= user.last_sign_in_at&.strftime('%B %d, %Y (%I:%M %p)') %></td>
+  <td><%= user.phone_number %></td>
+  <td>
+    <%= link_to admin_users_user_path(user),
+                method: :delete,
+                data: { turbo_method: "delete", confirm: "Are you sure?" } do %>
+      <i class="fas fa-trash-alt"></i>
+    <% end %>
+  </td>
 </tr>
