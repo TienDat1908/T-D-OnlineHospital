@@ -18,7 +18,7 @@ class Api::V1::AuthController < ApplicationApiController
     user = User.new(user_params)
 
     if user.save
-      user.update_columns(status: true)
+      user.update_columns(current_sign_in_at: Time.current, status: true)
       token = encode_token(user)
       render json: { token: token, user: user }, status: :created
     else
@@ -61,7 +61,9 @@ class Api::V1::AuthController < ApplicationApiController
       :first_name,
       :last_name,
       :location,
-      :avatar
+      :avatar,
+      :nick_name,
+      :date_of_birth
     )
   end
 

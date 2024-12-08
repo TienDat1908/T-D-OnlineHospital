@@ -33,6 +33,7 @@ Rails.application.routes.draw do
       end
 
       resources :post_articles, only: %i[index show create update destroy]
+      resources :addresses
     end
   end
 end
