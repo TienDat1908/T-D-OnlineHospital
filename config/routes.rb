@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root to: 'home#index'
 
   # Devise cho AdminUser
-  devise_for :admin_users, controllers: {
+  devise_for :admin_users, skip: %i[registrations passwords confirmations unlocks], controllers: {
     sessions: 'admin_users/sessions'
   }
 

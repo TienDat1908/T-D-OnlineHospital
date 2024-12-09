@@ -60,10 +60,10 @@ class Api::V1::AuthController < ApplicationApiController
       :phone_number,
       :first_name,
       :last_name,
-      :location,
       :avatar,
       :nick_name,
-      :date_of_birth
+      :date_of_birth,
+      :gender
     )
   end
 

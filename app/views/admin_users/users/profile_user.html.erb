@@ -14,15 +14,15 @@
   <div class="flex justify-between pt-[24px] pl-[24px] pr-[24px] pb-0" style="margin-bottom: 24px">
     <div class="font-bold text-2xl text-black">Name & Date of Birth</div>
     <div class="flex" style="gap:30px">
-      <div class="text-black" style="border: 1px solid #727272; border-radius: 8px; width: 240px; padding: 8px;">
+      <div class="text-black" style="border: 1px solid #727272; border-radius: 8px; padding: 8px;">
         <div style="font-size: 12px;">First Name:</div>
         <div style="font-size: 18px; font-weight: 700;"><%= @user.first_name %></div>
       </div>
-      <div class="text-black" style="border: 1px solid #727272; border-radius: 8px; width: 240px; padding: 8px;">
+      <div class="text-black" style="border: 1px solid #727272; border-radius: 8px; padding: 8px;">
         <div style="font-size: 12px;">Last Name:</div>
         <div style="font-size: 18px; font-weight: 700;"><%= @user.last_name %></div>
       </div>
-      <div class="text-black" style="border: 1px solid #727272; border-radius: 8px; width: 240px; padding: 8px;">
+      <div class="text-black" style="border: 1px solid #727272; border-radius: 8px; padding: 8px;">
         <div style="font-size: 12px;">Date of Birth:</div>
         <div style="font-size: 18px; font-weight: 700;"><%= @user.date_of_birth&.strftime("%m-%d-%Y") %></div>
       </div>
@@ -32,11 +32,11 @@
   <div class="flex justify-between pt-[24px] pl-[24px] pr-[24px] pb-0" style="margin-bottom: 24px">
     <div class="font-bold text-2xl text-black">Email & Phone Number</div>
     <div class="flex" style="gap:30px">
-      <div class="text-black" style="border: 1px solid #727272; border-radius: 8px; width: 375px; padding: 8px;">
+      <div class="text-black" style="border: 1px solid #727272; border-radius: 8px; padding: 8px;">
         <div style="font-size: 12px;">Email:</div>
         <div style="font-size: 18px; font-weight: 700;"><%= @user.email %></div>
       </div>
-      <div class="text-black" style="border: 1px solid #727272; border-radius: 8px; width: 375px; padding: 8px;">
+      <div class="text-black" style="border: 1px solid #727272; border-radius: 8px; padding: 8px;">
         <div style="font-size: 12px;">Phone Number:</div>
         <div style="font-size: 18px; font-weight: 700;"><%= @user.phone_number %></div>
       </div>
@@ -46,15 +46,15 @@
   <div class="flex justify-between pt-[24px] pl-[24px] pr-[24px] pb-0" style="margin-bottom: 24px">
     <div class="font-bold text-2xl text-black">Active</div>
     <div class="flex" style="gap:30px">
-      <div class="text-black" style="border: 1px solid #727272; border-radius: 8px; width: 240px; padding: 8px;">
+      <div class="text-black" style="border: 1px solid #727272; border-radius: 8px; padding: 8px;">
         <div style="font-size: 12px;">Current Sign In At:</div>
         <div style="font-size: 18px; font-weight: 700;"><%= @user.current_sign_in_at&.strftime("%m-%d-%Y, %I:%M %p") %></div>
       </div>
-      <div class="text-black" style="border: 1px solid #727272; border-radius: 8px; width: 240px; padding: 8px;">
+      <div class="text-black" style="border: 1px solid #727272; border-radius: 8px; padding: 8px;">
         <div style="font-size: 12px;">Last Sign In At:</div>
         <div style=" font-size: 18px; font-weight: 700;"><%= @user.last_sign_in_at&.strftime("%m-%d-%Y, %I:%M %p") %></div>
       </div>
-      <div class="text-black" style="border: 1px solid #727272; border-radius: 8px; width: 240px; padding: 8px;">
+      <div class="text-black" style="border: 1px solid #727272; border-radius: 8px; padding: 8px;">
         <div style="font-size: 12px">Status:</div>
         <div style="font-size: 18px; font-weight: 700;">
           <%= @user.status ? 'Active' : 'Unactive' %>

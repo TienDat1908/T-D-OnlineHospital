@@ -9,6 +9,7 @@
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
 #  first_name             :string
+#  gender                 :integer
 #  last_name              :string
 #  last_sign_in_at        :datetime
 #  last_sign_in_ip        :inet
@@ -28,7 +29,7 @@
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :email, :phone_number, :first_name, :last_name, :location, :created_at, :updated_at, :avatar_url
+  attributes :id, :email, :phone_number, :first_name, :last_name, :gender, :created_at, :updated_at, :avatar_url
 
   def avatar_url
     object.avatar.attached? ? Rails.application.routes.url_helpers.rails_blob_path(object.avatar, only_path: true) : nil

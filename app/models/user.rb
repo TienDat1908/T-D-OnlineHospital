@@ -9,6 +9,7 @@
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
 #  first_name             :string
+#  gender                 :integer
 #  last_name              :string
 #  last_sign_in_at        :datetime
 #  last_sign_in_ip        :inet
@@ -39,6 +40,8 @@ class User < ApplicationRecord
   has_many :addresses
 
   validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
+
+  enum gender: { male: 0, female: 1 }
 
   def full_name
     "#{first_name} #{last_name}"
