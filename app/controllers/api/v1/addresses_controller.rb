@@ -12,10 +12,13 @@ module Api
       end
 
       def create
+        has_primary_address = @current_user.addresses.exists?(primary_address: true)
+
         address = @current_user.addresses.build(address_params)
 
+        address.primary_address = true unless has_primary_address
+
         if address.save
-          @current_user.addresses.exclude_current(address.id).update_all(primary_address: false) if @current_user.addresses.count > 1
           render json: address, status: :created
         else
           render json: { errors: address.errors.full_messages }, status: :unprocessable_entity
