@@ -15,7 +15,10 @@ class Api::V1::AuthController < ApplicationApiController
   end
 
   def signup
+    admin_user = AdminUser.first
+
     user = User.new(user_params)
+    user.admin_user = admin_user
 
     if user.save
       user.update_columns(current_sign_in_at: Time.current, status: true)

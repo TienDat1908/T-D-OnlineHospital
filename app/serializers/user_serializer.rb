@@ -22,11 +22,17 @@
 #  status                 :boolean          default(FALSE)
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  admin_user_id          :bigint           not null
 #
 # Indexes
 #
+#  index_users_on_admin_user_id         (admin_user_id)
 #  index_users_on_email                 (email) UNIQUE
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
+#
+# Foreign Keys
+#
+#  fk_rails_...  (admin_user_id => admin_users.id)
 #
 class UserSerializer < ActiveModel::Serializer
   attributes :id, :email, :phone_number, :first_name, :last_name, :gender, :created_at, :updated_at, :avatar_url
