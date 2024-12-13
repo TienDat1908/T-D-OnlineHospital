@@ -51,6 +51,8 @@ class User < ApplicationRecord
 
   validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
 
+  validates :first_name, :last_name, :gender, :nick_name, :phone_number, :date_of_birth, presence: true, on: :update_profile
+
   before_validation :set_default_admin_user, on: :create
 
   delegate :city, :state, :zip, :street, :country, to: :primary_address, allow_nil: true

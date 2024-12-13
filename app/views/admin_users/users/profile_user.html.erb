@@ -1,14 +1,10 @@
-<div class="flex flex-col w-full bg-white shadow-lg rounded-xl p-3 text-white">
-  <% if @user.avatar.present? %>
-    <%= image_tag rails_blob_path(@user.avatar, only_path: true),
-                style: "width: 150px; height: 150px; border-radius: 50%; object-fit: cover;
-                        border: 5px solid white;
-                        box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);" %>
-  <% end %>
-  <div style="margin-top:20px; margin-bottom: 24px">
-    <div class="text-[45px] text-black font-bold"><%= @user&.full_name %></div>
-    <div class="text-[20px] text-black">(<%= @user&.nick_name %>)</div>
-    <div class="text-[#727272] text-[20px]"><%= @user&.email %></div>
+<div class="flex flex-col w-full bg-white shadow-lg rounded-xl text-white">
+  <div class="flex items-center rounded-t-xl p-[24px] <%= @user.gender == 'male' ? 'bg-gradient-to-b from-cyan-950 to-white' : 'bg-gradient-to-b from-red-500 to-white' %>">
+    <%= user_avatar(@user) %>
+    <div style="margin-left: 20px" class="">
+      <div class="text-[45px] text-black font-bold"><%= @user&.full_name %></div>
+      <div class="text-[20px] text-black">(<%= @user&.nick_name %>)</div>
+    </div>
   </div>
   <div style="width:100%; border: 1px solid #727272;"></div>
   <div class="flex justify-between pt-[24px] pl-[24px] pr-[24px] pb-0" style="margin-bottom: 24px">
@@ -92,5 +88,4 @@
       </div>
     </div>
   </div>
-  <div style="width:100%; border: 1px solid #727272;"></div>
 </div>
