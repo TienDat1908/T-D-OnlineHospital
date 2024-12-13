@@ -5,7 +5,7 @@
 # Table name: admin_users
 #
 #  id                     :bigint           not null, primary key
-#  date_of_birth          :datetime
+#  date_of_birth          :date
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
 #  phone_number           :string

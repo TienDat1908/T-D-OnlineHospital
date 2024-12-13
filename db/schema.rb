@@ -63,7 +63,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_12_12_092729) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.datetime "date_of_birth"
+    t.date "date_of_birth"
     t.string "phone_number"
     t.index ["email"], name: "index_admin_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
@@ -96,7 +96,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_12_12_092729) do
     t.string "first_name"
     t.string "last_name"
     t.string "nick_name"
-    t.datetime "date_of_birth"
+    t.date "date_of_birth"
     t.integer "gender"
     t.bigint "admin_user_id", null: false
     t.index ["admin_user_id"], name: "index_users_on_admin_user_id"

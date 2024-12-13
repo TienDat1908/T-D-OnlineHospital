@@ -41,10 +41,16 @@ class Api::V1::AuthController < ApplicationApiController
   end
 
   def update_profile
-    if @current_user.update(profile_params)
-      render json: { user: @current_user, message: 'Profile updated successfully' }, status: :ok
+    user = @current_user
+
+    if params[:user][:gender].present?
+      params[:user][:gender] = params[:user][:gender] == '1' ? 'female' : 'male'
+    end
+
+    if user.update(profile_params)
+      render json: { user: user, message: 'Profile updated successfully' }, status: :ok
     else
-      render json: { errors: @current_user.errors.full_messages }, status: :unprocessable_entity
+      render json: { errors: user.errors.full_messages }, status: :unprocessable_entity
     end
   end
 
