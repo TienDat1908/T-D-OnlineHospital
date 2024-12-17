@@ -70,6 +70,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_12_16_082520) do
   end
 
   create_table "feedbacks", force: :cascade do |t|
+    t.string "title"
     t.string "description"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
@@ -105,7 +106,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_12_16_082520) do
     t.string "last_name"
     t.string "nick_name"
     t.date "date_of_birth"
-    t.integer "gender"
+    t.string "gender"
     t.bigint "admin_user_id", null: false
     t.index ["admin_user_id"], name: "index_users_on_admin_user_id"
     t.index ["email"], name: "index_users_on_email", unique: true

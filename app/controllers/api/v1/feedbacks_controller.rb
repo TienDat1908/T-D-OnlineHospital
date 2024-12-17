@@ -14,6 +14,7 @@ module Api
 
       def feedback_params
         params.require(:feedback).permit(
+          :title,
           :description,
           images: []
         )

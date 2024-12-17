@@ -9,7 +9,7 @@
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
 #  first_name             :string
-#  gender                 :integer
+#  gender                 :string
 #  last_name              :string
 #  last_sign_in_at        :datetime
 #  last_sign_in_ip        :inet
@@ -52,13 +52,22 @@ class User < ApplicationRecord
 
   validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
 
-  validates :first_name, :last_name, :gender, :nick_name, :phone_number, :date_of_birth, presence: true, on: :update_profile
-
   before_validation :set_default_admin_user, on: :create
 
   delegate :city, :state, :zip, :street, :country, to: :primary_address, allow_nil: true
 
-  enum gender: { male: 0, female: 1 }
+  enum gender: { male: 'male', female: 'female' }
+
+  with_options on: :update_profile do
+    validates :first_name, presence: true
+    validates :last_name, presence: true
+    validates :date_of_birth, presence: true
+    validates :gender, inclusion: { in: %w[male female] }
+    validates :phone_number, presence: true
+    validates :nick_name, presence: true
+  end
+
+  validates :first_name, :last_name, :phone_number, :nick_name, :date_of_birth, :gender, presence: true, on: :update_profile
 
   def full_name
     "#{first_name} #{last_name}"

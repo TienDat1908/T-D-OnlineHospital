@@ -4,6 +4,7 @@
 #
 #  id          :bigint           not null, primary key
 #  description :string
+#  title       :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  user_id     :bigint           not null
@@ -21,9 +22,9 @@ class Feedback < ApplicationRecord
 
   belongs_to :user
 
-  validates :description, presence: true
+  validates :title, :description, presence: true
 
   def self.ransackable_attributes(_auth_object = nil)
-    %w[id description created_at updated_at]
+    %w[id title description created_at updated_at]
   end
 end

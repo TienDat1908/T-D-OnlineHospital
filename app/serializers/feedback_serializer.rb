@@ -4,6 +4,7 @@
 #
 #  id          :bigint           not null, primary key
 #  description :string
+#  title       :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  user_id     :bigint           not null
@@ -17,7 +18,7 @@
 #  fk_rails_...  (user_id => users.id)
 #
 class FeedbackSerializer < ActiveModel::Serializer
-  attributes :id, :description, :images_url, :user_id, :created_at, :updated_at
+  attributes :id, :title, :description, :images_url, :user_id, :created_at, :updated_at
 
   def images_url
     return unless object.images.attached?

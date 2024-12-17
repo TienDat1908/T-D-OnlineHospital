@@ -4,7 +4,8 @@
     class="cursor-pointer"
 >
   <td class="w-0"><%= feedback.id %></td>
+  <td><%= feedback.title %></td>
   <td><%= feedback.description %></td>
-  <td class="w-72"><%= feedback.created_at %></td>
-  <td class="w-72"><%= feedback.updated_at %></td>
+  <td class="w-52"><%= feedback.created_at.strftime("%m-%d-%Y, %I:%M %p") %></td>
+  <td class="w-52"><%= feedback.updated_at.strftime("%m-%d-%Y, %I:%M %p") %></td>
 </tr>
