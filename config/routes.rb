@@ -19,6 +19,11 @@ Rails.application.routes.draw do
     end
     resources :post_articles
     resources :profile_admin_users
+    resources :feedbacks do
+      member do
+        get :content_feedback
+      end
+    end
   end
 
   namespace :api do
@@ -34,6 +39,7 @@ Rails.application.routes.draw do
 
       resources :post_articles, only: %i[index show create update destroy]
       resources :addresses
+      resources :feedbacks, only: %i[create]
     end
   end
 end

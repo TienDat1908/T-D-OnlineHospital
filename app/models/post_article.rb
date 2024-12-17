@@ -21,6 +21,6 @@ class PostArticle < ApplicationRecord
   belongs_to :user
 
   def self.ransackable_attributes(_auth_object = nil)
-    %w[id title content created_at updated_at user_id]
+    %w[id title content created_at updated_at]
   end
 end

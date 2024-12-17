@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_12_12_092729) do
+ActiveRecord::Schema[7.2].define(version: 2024_12_16_082520) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -69,6 +69,14 @@ ActiveRecord::Schema[7.2].define(version: 2024_12_12_092729) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
+  create_table "feedbacks", force: :cascade do |t|
+    t.string "description"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_feedbacks_on_user_id"
+  end
+
   create_table "post_articles", force: :cascade do |t|
     t.string "title"
     t.text "content"
@@ -107,6 +115,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_12_12_092729) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "addresses", "users"
+  add_foreign_key "feedbacks", "users"
   add_foreign_key "post_articles", "users"
   add_foreign_key "users", "admin_users"
 end

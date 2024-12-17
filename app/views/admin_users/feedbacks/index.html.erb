@@ -1,0 +1,28 @@
+<div class="flex justify-between">
+  <div class="text-[36px] font-bold tertiary-font bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+    Feed Back
+  </div>
+  <%= search_form_for @q, url: admin_users_feedbacks_path, method: :get do |f| %>
+    <%= f.search_field :id_eq, class: "search rounded-[10px] bg-white shadow-lg border-0", placeholder: "Search by ID" %>
+    <%= f.search_field :description_cont, class: "search rounded-[10px] bg-white shadow-lg border-0", placeholder: "Search by Description" %>
+    <%= f.submit "Search", class: "text-white cursor-pointer bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 p-2 rounded-[10px] shadow-lg"%>
+  <% end %>
+</div>
+<table class="table table-striped w-full bg-white shadow-lg rounded-xl">
+  <thead class="text-left" style="border-bottom: 2px solid rgb(156 163 175)">
+    <tr>
+      <th><%= sort_link(@q, :id, "No.") %></th>
+      <th><%= sort_link(@q, :description, "Title") %></th>
+      <th><%= sort_link(@q, :updated_at, "Updated At") %></th>
+      <th><%= sort_link(@q, :created_at, "Created At") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @feedbacks.each do |feedback| %>
+      <%= render feedback %>
+    <% end %>
+  </tbody>
+</table>
+<div class="mt-6 flex justify-center">
+  <%= paginate @feedbacks %>
+</div>

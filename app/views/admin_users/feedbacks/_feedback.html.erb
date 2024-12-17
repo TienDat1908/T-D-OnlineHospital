@@ -1,0 +1,10 @@
+<tr data-controller="clickable-row"
+    data-url="<%= content_feedback_admin_users_feedback_path(feedback) %>"
+    data-action="click->clickable-row#handleClick"
+    class="cursor-pointer"
+>
+  <td class="w-0"><%= feedback.id %></td>
+  <td><%= feedback.description %></td>
+  <td class="w-72"><%= feedback.created_at %></td>
+  <td class="w-72"><%= feedback.updated_at %></td>
+</tr>

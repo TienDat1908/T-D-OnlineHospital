@@ -46,6 +46,7 @@ class User < ApplicationRecord
 
   has_many :post_articles
   has_many :addresses, dependent: :destroy
+  has_many :feedbacks, dependent: :destroy
 
   has_one :primary_address, -> { where(primary_address: true) }, foreign_key: :user_id, class_name: 'Address'
 
